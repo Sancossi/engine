@@ -46,7 +46,7 @@ class Input:
         for binding in config['input']:
             if config['input'][binding]['trigger'] == 'press':
                 self.states[binding] = False
-                self.mouse_state['left'] = False
+        self.mouse_state['left'] = False
         self.mouse_state['right'] = False
         self.mouse_state['left_release'] = False
         self.mouse_state['right_release'] = False
