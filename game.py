@@ -11,7 +11,7 @@ class Game:
         self.renderer = None
 
         self.world = None
-        #full_init()
+        # full_init()
 
     def update(self):
         self.input.update()

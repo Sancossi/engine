@@ -2,10 +2,6 @@ import os
 
 from src.image import load_img
 
-FONTS = {
-
-}
-
 
 class Assets:
     def __init__(self):

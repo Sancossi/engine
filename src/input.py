@@ -3,7 +3,8 @@ import sys
 import pygame
 
 from src.config import config
-from pygame.constants import QUIT, KEYDOWN, KEYUP, MOUSEBUTTONUP, MOUSEBUTTONDOWN
+from pygame.constants import QUIT,\
+    KEYDOWN, KEYUP, MOUSEBUTTONUP, MOUSEBUTTONDOWN
 
 
 def is_keyboard(binding):
@@ -52,6 +53,19 @@ class Input:
         self.mouse_state['scroll_up'] = False
         self.mouse_state['scroll_down'] = False
 
+    def process_mouse_event(self, event, event_type, state):
+        mouse_mapping = {
+            1: ('left', 'left_hold'),
+            3: ('right', 'right_hold'),
+            4: ('scroll_up'),
+            5: ('scroll_down'),
+        }
+        if event.type == event_type:
+            states = mouse_mapping.get(event.button, ())
+            for i in states:
+                self.mouse_state[i] = state
+                print(f'mouse: {event.button} state: {state}')
+
     def process_keyboard_event(self, event, event_type, state):
         if event.type == event_type:
             for binding in config['input']:
@@ -80,25 +94,8 @@ class Input:
                 sys.exit()
             self.process_keyboard_event(event, KEYDOWN, True)
             self.process_keyboard_event(event, KEYUP, False)
-            if event.type == MOUSEBUTTONDOWN:
-                if event.button == 1:
-                    self.mouse_state['left'] = True
-                    self.mouse_state['left_hold'] = True
-                if event.button == 3:
-                    self.mouse_state['right'] = True
-                    self.mouse_state['right_hold'] = True
-                if event.button == 4:
-                    self.mouse_state['scroll_up'] = True
-                if event.button == 5:
-                    self.mouse_state['scroll_down'] = True
-            if event.type == MOUSEBUTTONUP:
-                if event.button == 1:
-                    self.mouse_state['left_release'] = True
-                    self.mouse_state['left_hold'] = False
-                if event.button == 3:
-                    self.mouse_state['right_release'] = True
-                    self.mouse_state['right_hold'] = False
-
-        if self.states['exit']:
-            pygame.quit()
-            sys.exit()
+            self.process_mouse_event(event, MOUSEBUTTONDOWN, True)
+            self.process_mouse_event(event, MOUSEBUTTONUP, False)
+            if self.states['exit']:
+                pygame.quit()
+                sys.exit()
