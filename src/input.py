@@ -46,12 +46,13 @@ class Input:
         for binding in config['input']:
             if config['input'][binding]['trigger'] == 'press':
                 self.states[binding] = False
-        self.mouse_state['left'] = False
-        self.mouse_state['right'] = False
-        self.mouse_state['left_release'] = False
-        self.mouse_state['right_release'] = False
-        self.mouse_state['scroll_up'] = False
-        self.mouse_state['scroll_down'] = False
+        for state in ('left',
+                      'right',
+                      'left_hold',
+                      'right_hold',
+                      'scroll_up',
+                      'scroll_down'):
+            self.mouse_state[state] = False
 
     def process_mouse_event(self, event, event_type, state):
         mouse_mapping = {
