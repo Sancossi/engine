@@ -1,0 +1,7 @@
+{
+  "base_resolution": [320, 240],
+  "scaled_resolution": [640, 480],
+  "offset": [0, 0],
+  "title": "PyEngine",
+  "backgound_color": [0,0,0]
+}

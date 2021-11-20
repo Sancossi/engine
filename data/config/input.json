@@ -1,0 +1,102 @@
+{
+  "move_right": {
+    "trigger": "hold",
+    "binding": ["keyboard", [100]],
+    "mode": ["core"]
+  },
+  "move_left": {
+    "trigger": "hold",
+    "binding": ["keyboard", [97]],
+    "mode": ["core"]
+  },
+  "reload": {
+    "trigger": "press",
+    "binding": ["keyboard", [114]],
+    "mode": ["core"]
+  },
+  "jump": {
+    "trigger": "press",
+    "binding": ["keyboard", [119]],
+    "mode": ["core"]
+  },
+  "pickup": {
+    "trigger": "press",
+    "binding": ["keyboard", [102]],
+    "mode": ["core"]
+  },
+  "exit": {
+    "trigger": "press",
+    "binding": ["keyboard", [27]],
+    "mode": ["all"]
+  },
+  "log_fps": {
+    "trigger": "press",
+    "binding": ["keyboard", [112]],
+    "mode": ["all"]
+  },
+  "debug_stats": {
+    "trigger": "press",
+    "binding": ["keyboard", [111]],
+    "mode": ["all"]
+  },
+  "toggle_scaled_window": {
+    "trigger": "press",
+    "binding": ["keyboard", [1073741892]],
+    "mode": ["all"]
+  },
+  "open_inventory": {
+    "trigger": "press",
+    "binding": ["keyboard", [101]],
+    "mode": ["core"]
+  },
+  "close_inventory": {
+    "trigger": "press",
+    "binding": ["keyboard", [101]],
+    "mode": ["inventory"]
+  },
+  "inventory_up": {
+    "trigger": "press",
+    "binding": ["keyboard", [119]],
+    "mode": ["inventory"]
+  },
+  "inventory_down": {
+    "trigger": "press",
+    "binding": ["keyboard", [115]],
+    "mode": ["inventory"]
+  },
+  "inventory_right": {
+    "trigger": "press",
+    "binding": ["keyboard", [100]],
+    "mode": ["inventory"]
+  },
+  "inventory_left": {
+    "trigger": "press",
+    "binding": ["keyboard", [97]],
+    "mode": ["inventory"]
+  },
+  "inventory_select": {
+    "trigger": "press",
+    "binding": ["keyboard", [32]],
+    "mode": ["inventory"]
+  },
+  "weapon_skill_1": {
+    "trigger": "press",
+    "binding": ["keyboard", [113]],
+    "mode": ["core"]
+  },
+  "weapon_skill_2": {
+    "trigger": "press",
+    "binding": ["keyboard", [101]],
+    "mode": ["core"]
+  },
+  "activate_consumable": {
+    "trigger": "press",
+    "binding": ["keyboard", [9]],
+    "mode": ["core"]
+  },
+  "dropthrough": {
+    "trigger": "hold",
+    "binding": ["keyboard", [115]],
+    "mode": ["core"]
+  }
+}
