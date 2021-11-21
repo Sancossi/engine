@@ -38,20 +38,19 @@ class Camera:
 
         if self.restiction_point:
             x_center = self.game.window.display.get_width() // 2
-            next_x = self.true_pos[0] + x_center - self.restiction_point[0]
+            point_x, point_y = self.restiction_point
+            next_x = self.true_pos[0] + x_center - point_x
 
-            direction = get_direction(next_x, self.lock_distance)
-            if direction:
-                self.true_pos[0] = self.restiction_point[0] - \
-                     x_center + direction * self.lock_distance
+            d = get_direction(next_x, self.lock_distance)
+            if d:
+                self.true_pos[0] = point_x - x_center + d * self.lock_distance
 
             y_center = self.game.window.display.get_heigth()
-            next_y = self.true_pos[1] + y_center - self.restiction_point[1]
+            next_y = self.true_pos[1] + y_center - point_y
 
-            direction = get_direction(next_y, self.lock_distance)
-            if direction:
-                self.true_pos[1] = self.restiction_point[1] - \
-                    y_center + direction * self.lock_distance
+            d = get_direction(next_y, self.lock_distance)
+            if d:
+                self.true_pos[1] = point_y - y_center + d * self.lock_distance
 
     def set_tracked_entity(self, entity):
         self.track_entity = entity
