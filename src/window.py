@@ -95,3 +95,8 @@ class Window:
         self.frame_start = time.time()
         self.frame_history.append(self.ui_dt)
         self.frame_history = self.frame_history[-200:]
+
+    def fps(self):
+        avg_dt = sum(self.frame_history) / len(self.frame_history)
+        fps = 1 / avg_dt
+        return fps

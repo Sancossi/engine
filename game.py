@@ -1,6 +1,7 @@
 from src.window import Window
 from src.input import Input
 from src.assets import Assets
+from src.renderer import Renderer
 
 
 class Game:
@@ -8,7 +9,7 @@ class Game:
         self.window = Window(self)
         self.input = Input(self)
         self.assets = Assets()
-        self.renderer = None
+        self.renderer = Renderer(self)
 
         self.world = None
         # full_init()
@@ -16,7 +17,7 @@ class Game:
     def update(self):
         self.input.update()
         # self.world.update()
-        # self.renderer.update()
+        self.renderer.render()
         self.window.render_frame()
 
     def run(self):

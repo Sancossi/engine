@@ -1,6 +1,6 @@
 {
-  "base_resolution": [320, 240],
-  "scaled_resolution": [640, 480],
+  "base_resolution": [640, 480],
+  "scaled_resolution": [1280, 960],
   "offset": [0, 0],
   "title": "PyEngine",
   "backgound_color": [0,0,0]

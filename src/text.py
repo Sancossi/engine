@@ -52,7 +52,6 @@ class Font():
     def render(self, text, surface, location, line_widht=0):
         x_offset = 0
         y_offset = 0
-
         if line_widht != 0:
             spaces = []
             x = 0
@@ -74,17 +73,19 @@ class Font():
                         text = text[:spaces[i - 1][1]
                                     + '\n' + text[spaces[i - 1][1] + 1:]]
 
-            for char in text:
-                if char not in ['\n', ' ']:
-                    x = location[0] + x_offset
-                    y = location[1] + y_offset
-                    surface.blit(
-                        self.letters[self.font_order.index(char)], (x, y))
-                elif char == ' ':
-                    x_offset += self.space_width + self.base_spacing
-                else:
-                    y_offset += self.line_spacing + self.line_height
-                    x_offset = 0
+        for char in text:
+            if char not in ['\n', ' ']:
+                x = location[0] + x_offset
+                y = location[1] + y_offset
+                surface.blit(
+                    self.letters[self.font_order.index(char)], (x, y))
+                x_offset += self.letter_spacing[self.font_order.index(
+                    char)] + self.base_spacing
+            elif char == ' ':
+                x_offset += self.space_width + self.base_spacing
+            else:
+                y_offset += self.line_spacing + self.line_height
+                x_offset = 0
 
     def width(self, text):
         text_width = 0
