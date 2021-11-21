@@ -10,9 +10,11 @@ FONTS = {
 
 
 def load_fonts(path):
-    return {
-        name: Font(os.path.join(path, f'{data[0]}.png'), data[1]) for name, data in FONTS.items()
-    }
+    fonts = {}
+    for name, data in FONTS.items():
+        font = Font(os.path.join(path, f'{data[0]}.png'), data[1])
+        fonts[name] = font
+    return fonts
 
 
 class Assets:
